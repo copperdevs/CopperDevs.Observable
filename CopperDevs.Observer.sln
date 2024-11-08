@@ -7,13 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopperDevs.Observer", "Copp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopperDevs.Observer.Testing", "CopperDevs.Observer.Testing\CopperDevs.Observer.Testing.csproj", "{9DD3653F-C2FE-401D-B067-4F3F25B27FFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repo", "Repo", "{3A2597A2-7EC3-4AF8-A310-F0FF9A05F9D7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		ReadMe.md = ReadMe.md
+		License.txt = License.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A7D39149-0655-48FF-B94A-0578614D532D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +28,8 @@ Global
 		{9DD3653F-C2FE-401D-B067-4F3F25B27FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DD3653F-C2FE-401D-B067-4F3F25B27FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DD3653F-C2FE-401D-B067-4F3F25B27FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
