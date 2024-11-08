@@ -1,4 +1,4 @@
-namespace CopperDevs.Observer;
+namespace CopperDevs.Observable;
 
 public abstract class Event
 {
