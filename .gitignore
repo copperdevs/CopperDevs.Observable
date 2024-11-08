@@ -1,0 +1,17 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+temp-notes.txt
+.idea
+CopperDevs.Observer.sln.DotSettings.user
+/shelf/
+/workspace.xml
+/contentModel.xml
+/.idea.CopperDevs.Observer.iml
+/modules.xml
+/projectSettingsUpdater.xml
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
