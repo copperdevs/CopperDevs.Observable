@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CopperDevs.Observable\CopperDevs.Observable.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CopperDevs.Logger" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
