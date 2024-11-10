@@ -58,10 +58,12 @@ public static class Observer
         if (Events[typeof(T)].Contains(action))
             Events[typeof(T)].Add(action);
     }
-
-
+    
     public static void Notify<T>(T? targetEvent = default, bool parallel = false) where T : Event, new()
     {
+        if (!Events.ContainsKey(typeof(T)))
+            Events.Add(typeof(T), []);
+        
         targetEvent ??= new T();
 
         if (parallel)
