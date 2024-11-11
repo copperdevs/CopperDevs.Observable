@@ -27,11 +27,11 @@ public abstract class Responder<T> : IDisposable where T : Event, new()
 
         hasDisposed = true;
         DisposeResources();
+        Observer.Remove<T>(Notified);
     }
 
-    private void DisposeResources()
+    protected virtual void DisposeResources()
     {
-        Observer.Remove<T>(Notified);
     }
 
     protected abstract void Notified(T data);
