@@ -1,45 +1,44 @@
-namespace CopperDevs.Observable
+namespace CopperDevs.Observable;
+
+public abstract class Responder<T> : IDisposable where T : Event, new()
 {
-    public abstract class Responder<T> : IDisposable where T : Event, new()
+    private bool hasDisposed = false;
+
+    public Responder()
     {
-        private bool hasDisposed = false;
+        Observer.Add<T>(Notified);
+    }
 
-        public Responder()
-        {
-            Observer.Add<T>(Notified);
-        }
+    ~Responder()
+    {
+        Dispose(false);
+    }
 
-        ~Responder()
-        {
-            Dispose(false);
-        }
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+    private void Dispose(bool manual)
+    {
+        if (hasDisposed)
+            return;
 
-        private void Dispose(bool manual)
-        {
-            if (hasDisposed)
-                return;
+        hasDisposed = true;
+        DisposeResources();
+        Observer.Remove<T>(Notified);
+    }
 
-            hasDisposed = true;
-            DisposeResources();
-            Observer.Remove<T>(Notified);
-        }
+    protected virtual void DisposeResources()
+    {
+    }
 
-        protected virtual void DisposeResources()
-        {
-        }
+    protected abstract void Notified(T data);
 
-        protected abstract void Notified(T data);
-
-        public static TResponder Create<TResponder>()
-            where TResponder : Responder<T>, new()
-        {
-            return new TResponder();
-        }
+    public static TResponder Create<TResponder>()
+        where TResponder : Responder<T>, new()
+    {
+        return new TResponder();
     }
 }

@@ -1,7 +1,6 @@
-namespace CopperDevs.Observable.Internal
+namespace CopperDevs.Observable.Internal;
+
+internal interface IObserverAction
 {
-    internal interface IObserverAction
-    {
-        public void Invoke(object? data);
-    }
+    public void Invoke(object? data);
 }
