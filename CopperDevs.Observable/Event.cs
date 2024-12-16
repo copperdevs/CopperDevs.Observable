@@ -1,3 +1,4 @@
-namespace CopperDevs.Observable;
-
-public record Event;
+namespace CopperDevs.Observable
+{
+    public record Event;
+}
