@@ -13,7 +13,7 @@ internal class ObserverAction<TEvent> : IObserverAction where TEvent : Event, ne
     {
         baseAction?.Invoke();
 
-        data ??= new TEvent();
-        valueAction?.Invoke((TEvent)data);
+        if(data != null)
+            valueAction?.Invoke((TEvent)data!);
     }
 }

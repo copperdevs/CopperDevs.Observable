@@ -59,12 +59,15 @@ public static class Observer
             Events[typeof(T)].Add(action);
     }
 
-    public static void Notify<T>(T? targetEvent = default, bool parallel = false) where T : Event, new()
+    public static void Notify<T>(bool parallel) where T : Event, new()
+    {
+        Notify<T>(null, parallel);
+    }
+
+    public static void Notify<T>(T? targetEvent = null, bool parallel = false) where T : Event, new()
     {
         if (!Events.ContainsKey(typeof(T)))
             Events.Add(typeof(T), []);
-
-        targetEvent ??= new T();
 
         if (parallel)
             Parallel.ForEach(Events[typeof(T)], action => action.Invoke(targetEvent));
