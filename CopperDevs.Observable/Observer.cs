@@ -84,7 +84,7 @@ public static class Observer
 
     public static void Notify<T>(bool parallel) where T : Event, new()
     {
-        Notify<T>(null, parallel);
+        Notify(new T(), parallel);
     }
 
     public static void Notify<T>(T? targetEvent = null, bool parallel = false) where T : Event, new()
