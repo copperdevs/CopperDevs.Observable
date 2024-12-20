@@ -1,3 +1,5 @@
+using CopperDevs.Core.Utility;
+
 namespace CopperDevs.Observable.Internal;
 
 internal class ObserverAction<TEvent> : IObserverAction where TEvent : Event, new()
@@ -14,8 +16,8 @@ internal class ObserverAction<TEvent> : IObserverAction where TEvent : Event, ne
     public void Invoke(object? data)
     {
         baseAction?.Invoke();
-
-        if ((Observer.ActionsNullableValues[ActiveAction]) || data != null)
+        
+        if ((Observer.ActionsNullableValues[ActiveAction]) || data != null || !typeof(TEvent).HasAnyValues())
             valueAction?.Invoke((TEvent)data!);
     }
 }
