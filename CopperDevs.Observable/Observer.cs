@@ -1,5 +1,4 @@
-﻿using CopperDevs.Core.Utility;
-using CopperDevs.Observable.Internal;
+﻿using CopperDevs.Observable.Internal;
 
 namespace CopperDevs.Observable;
 
@@ -10,7 +9,7 @@ public static class Observer
     // every action has a connected observer action, even if it's registered to be invoked on its action
     private static readonly Dictionary<Delegate, IObserverAction> Actions = [];
 
-    // Actions dictionary could be a tuple but thats no fun so this is the next best thing
+    // Actions dictionary could be a tuple but that's no fun so this is the next best thing
     internal static readonly Dictionary<Delegate, bool> ActionsNullableValues = [];
 
 

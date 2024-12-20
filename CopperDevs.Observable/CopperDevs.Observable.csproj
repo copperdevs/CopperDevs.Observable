@@ -13,8 +13,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Company>copperdevs</Company>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
-    <FileVersion>1.0.4</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
     <Version>1.0.4</Version>
