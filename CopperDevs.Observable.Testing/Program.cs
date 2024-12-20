@@ -28,9 +28,9 @@ public static class Program
     {
         Log.Info($"Damage Amount: {e?.Amount ?? 0}");
     }
+}
 
-    public sealed record PlayerDamageEvent : Event
-    {
-        public int Amount;
-    }
+public sealed record PlayerDamageEvent : Event
+{
+    public int Amount;
 }

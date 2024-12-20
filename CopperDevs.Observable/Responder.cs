@@ -4,7 +4,7 @@ namespace CopperDevs.Observable;
 
 public abstract class Responder<T> : SafeDisposable where T : Event, new()
 {
-    private Responder()
+    protected Responder()
     {
     }
 
