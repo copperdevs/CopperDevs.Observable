@@ -1,4 +1,5 @@
-﻿using CopperDevs.Observable.Internal;
+﻿using CopperDevs.Core.Utility;
+using CopperDevs.Observable.Internal;
 
 namespace CopperDevs.Observable;
 

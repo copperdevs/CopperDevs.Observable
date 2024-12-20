@@ -10,7 +10,9 @@ public static class Program
         Observer.Add<PlayerDamageEvent>(OnDamaged);
 
         Observer.Notify<PlayerDamageEvent>();
+        
         Log.Debug("*imagine a bit of time later*");
+        
         Observer.Notify(new PlayerDamageEvent { Amount = 10 });
 
         Observer.Remove<PlayerDamageEvent>(OnDamage);

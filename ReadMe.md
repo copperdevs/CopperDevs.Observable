@@ -35,6 +35,7 @@
 ```
 
 *Output*
+
 ```text
 Player has been damaged
 *imagine a bit of time later*

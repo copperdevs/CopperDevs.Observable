@@ -1,37 +1,17 @@
+using CopperDevs.Core.Utility;
+
 namespace CopperDevs.Observable;
 
-public abstract class Responder<T> : IDisposable where T : Event, new()
+public abstract class Responder<T> : SafeDisposable where T : Event, new()
 {
-    private bool hasDisposed = false;
-
     public Responder()
     {
         Observer.Add<T>(Notified);
     }
 
-    ~Responder()
+    public override void DisposeResources()
     {
-        Dispose(false);
-    }
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
-    }
-
-    private void Dispose(bool manual)
-    {
-        if (hasDisposed)
-            return;
-
-        hasDisposed = true;
-        DisposeResources();
         Observer.Remove<T>(Notified);
-    }
-
-    protected virtual void DisposeResources()
-    {
     }
 
     protected abstract void Notified(T data);
