@@ -5,6 +5,8 @@ internal class ObserverAction<TEvent> : IObserverAction where TEvent : Event, ne
     private readonly Action? baseAction;
     private readonly Action<TEvent>? valueAction;
 
+    private Delegate ActiveAction => (baseAction is not null ? baseAction : valueAction)!;
+
     public ObserverAction(Action baseAction) => this.baseAction = baseAction;
 
     public ObserverAction(Action<TEvent> valueAction) => this.valueAction = valueAction;
@@ -13,7 +15,7 @@ internal class ObserverAction<TEvent> : IObserverAction where TEvent : Event, ne
     {
         baseAction?.Invoke();
 
-        if(data != null)
+        if ((Observer.ActionsNullableValues[ActiveAction]) || data != null)
             valueAction?.Invoke((TEvent)data!);
     }
 }

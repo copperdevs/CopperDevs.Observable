@@ -4,9 +4,9 @@ namespace CopperDevs.Observable;
 
 public abstract class Responder<T> : SafeDisposable where T : Event, new()
 {
-    public Responder()
+    public Responder(bool nullableValue = false)
     {
-        Observer.Add<T>(Notified);
+        Observer.Add<T>(Notified, nullableValue);
     }
 
     public override void DisposeResources()
@@ -14,7 +14,7 @@ public abstract class Responder<T> : SafeDisposable where T : Event, new()
         Observer.Remove<T>(Notified);
     }
 
-    protected abstract void Notified(T data);
+    protected abstract void Notified(T? data);
 
     public static TResponder Create<TResponder>()
         where TResponder : Responder<T>, new()
