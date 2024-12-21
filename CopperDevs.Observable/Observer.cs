@@ -84,11 +84,13 @@ public static class Observer
 
     public static void Notify<T>(bool parallel) where T : Event, new()
     {
-        Notify(new T(), parallel);
+        Notify<T>(null, parallel);
     }
 
     public static void Notify<T>(T? targetEvent = null, bool parallel = false) where T : Event, new()
     {
+        targetEvent ??= new T();
+        
         if (!Events.ContainsKey(typeof(T)))
             Events.Add(typeof(T), []);
 
